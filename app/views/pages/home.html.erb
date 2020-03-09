@@ -1,0 +1,47 @@
+<h1 class="ui header centered">Skill Showcase</h1>
+<div class="ui grid centered cards row">
+      <div class="card ui item six wide column">
+        <div class="content">
+          <div class="header">Skills Showcase</div>
+          <div class="description">
+            <p>Share your skills and find very talented people.</p>
+            <% if user_signed_in? %>
+               
+                <%= button_to "Logout", destroy_user_session_path, method: :delete, :class => "negative ui button" %>    
+              
+                <% else %>
+                    <div class="ui tiny buttons">
+                        <%= button_to "Login", new_user_session_path, method: :get, :class => "positive ui button" %>
+                        <div class="or"></div>
+                        <%= button_to "Sign Up", new_user_registration_path, method: :get, :class => "primary ui button" %>
+                    </div>
+                <% end %>
+
+          </div>
+        </div>
+      </div>
+  </div>
+
+<div class="ui grid centered steps six wide column">
+  <div class="active step">
+    <i class="file icon"></i>
+    <div class="content">
+      <div class="title">Sign Up</div>
+      <div class="description">Register simply and fast</div>
+    </div>
+  </div>
+  <div class="step">
+    <i class="user icon"></i>
+    <div class="content">
+      <div class="title">Complete Your Profile</div>
+      <div class="description">So people can find you.</div>
+    </div>
+  </div>
+  <div class="step">
+    <i class="pencil icon"></i>
+    <div class="content">
+      <div class="title">Skill yourself!</div>
+      <div class="description">So people know what you do.</div>
+    </div>
+  </div>
+</div>
