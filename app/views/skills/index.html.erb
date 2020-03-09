@@ -3,12 +3,13 @@
 
 <h1>Skills</h1>
 
-<table>
+<a class="ui teal ribbon label"><%= current_user.email %></a>
+<div class="ui black horizontal label">Joined: <%= current_user.created_at %></div>
+<table class="ui table">
   <thead>
     <tr>
       <th>Name</th>
       <th>Points</th>
-      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,11 +18,13 @@
     <% @skills.each do |skill| %>
       <tr>
         <td><%= skill.name %></td>
-        <td><%= skill.points %></td>
-        <td><%= skill.user_id %></td>
-        <td><%= link_to 'Show', skill %></td>
-        <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
-        <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <label><%= skill.points %></label>
+          <progress value="<%= skill.points %>" max="5"> <%= skill.points %> </progress>
+        </td>
+        <td><%= link_to 'Show', skill, :class => "ui button mini" %></td>
+        <td><%= link_to 'Edit', edit_skill_path(skill), :class => "ui button mini" %></td>
+        <td><%= link_to 'Destroy', skill, :class => "ui button negative mini", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Skill', new_skill_path %>
+<%= link_to '+ New Skill', new_skill_path, :class => "ui button positive" %>

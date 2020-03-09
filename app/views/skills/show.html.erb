@@ -1,19 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @skill.name %>
-</p>
-
-<p>
-  <strong>Points:</strong>
-  <%= @skill.points %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @skill.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_skill_path(@skill) %> |
-<%= link_to 'Back', skills_path %>
+<div class="ui card centered">
+  <div class="content">
+    <div class="header"><i class="code icon"></i><%= @skill.name %></div>
+  </div>
+  <div class="content">
+    <div class="ui small feed">
+      <div class="event">
+        <div class="content">
+          <div class="summary">
+            <strong>Points:</strong>
+            <label><%= @skill.points %></label>
+            <progress value="<%= @skill.points %>" max="5"> <%= @skill.points %> </progress>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="extra content">
+    <%= link_to 'Edit', edit_skill_path(@skill), :class => "ui mini button"  %> |
+    <%= link_to 'Back', skills_path, :class => "ui mini button" %>
+  </div>
+</div>
