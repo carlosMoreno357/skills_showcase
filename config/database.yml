@@ -17,5 +17,5 @@ test:
 production:
   <<: *default
   database: skills_showcase_production
-  username: skills_showcase
+  username: postgres
   password: <%= ENV['SKILLS_SHOWCASE_DATABASE_PASSWORD'] %>
